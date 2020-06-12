@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Bit Stuffer</title>
+</head>
+
+<body class=center>
+    <label for="Bit">Insert Bit to stuff</label><br>
+    <p><input type="text" id="sourceBit" name="sourceBit" class="input"><button type="button" id="resultButton"
+            class="button">Let's stuff bits!</button></p>
+    <br><br>
+
+    <p>Before Stuffing: <label type="text" id="original">Original bits</label></p>
+    <p>After Stuffing: <label type="text" id="result" class="s_stuffed">Stuffed bits</label><br></p>
+
+    <p>After framing:<label type="text" id="framing" class="s_framing">Frame</label><label type="text" id="result2"
+            class="s_stuffed">Stuffed bits</label><label type="text" id="framing2" class="s_framing">Frame</label></p>
+
+
+
+            <br><br><br><br>
+            <author><p>Author: Maickel Siqueira</p>
+            <p>e-mail: msiqueira@myseneca.ca</p></author>
+
+
+</body>
+</html>
+<script>
+
+    var original = document.getElementById('sourceBit').innerText;
+    var oneCounter = 0;
+    var lastZeroStuffed = 0;
+    var bitToStuff = 0;
+    var framing = "01111110";
+    var framed = "";
+    var stuffed = "";
+
+    function stuff() {
+        for (var i = 0; i < stuffed.length; i++) {
+            if (stuffed.charAt(i) == '1') {
+                oneCounter++;
+            } else {
+                oneCounter = 0;
+            }
+            if (oneCounter == 5) {
+                stuffed = stuffed.slice(lastZeroStuffed, i + 1) + "0" + stuffed.slice(i + 1, stuffed.length)
+            }
+        }
+    }
+    function frame() {
+        framed = framing;
+    }
+
+    function changeResult() {
+        original = document.getElementById('sourceBit').value +"";
+        stuffed = original;
+        stuff();
+        frame();
+        document.getElementById('original').innerText = original;
+        document.getElementById('result').innerText = stuffed;
+        document.getElementById('result2').innerText = stuffed;
+        document.getElementById('framing').innerText = framed;
+        document.getElementById('framing2').innerText = framed;
+    }
+
+    document.getElementById("resultButton").addEventListener('click', function () {
+        changeResult();
+    });
+
+
+</script>
