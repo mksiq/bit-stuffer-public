@@ -17,17 +17,14 @@
     <p>After framing:<label type="text" id="framing" class="s_framing">Frame</label><label type="text" id="result2"
             class="s_stuffed">Stuffed bits</label><label type="text" id="framing2" class="s_framing">Frame</label></p>
 
-
-
-            <br><br><br><br>
-            <author><p>Author: Maickel Siqueira</p>
-            <p>e-mail: msiqueira@myseneca.ca</p></author>
+    <br><br><br><br>
+    <author><p>Author: Maickel Siqueira</p>
+    <p>e-mail: msiqueira@myseneca.ca</p></author>
 
 
 </body>
 </html>
 <script>
-
     var original = document.getElementById('sourceBit').innerText;
     var oneCounter = 0;
     var lastZeroStuffed = 0;
@@ -52,7 +49,7 @@
         framed = framing;
     }
 
-    function changeResult() {
+    function letsStuff() {
         original = document.getElementById('sourceBit').value +"";
         stuffed = original;
         stuff();
@@ -65,8 +62,6 @@
     }
 
     document.getElementById("resultButton").addEventListener('click', function () {
-        changeResult();
+        letsStuff();
     });
-
-
 </script>
