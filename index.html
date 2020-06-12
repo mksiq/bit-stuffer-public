@@ -11,11 +11,14 @@
             class="button">Let's stuff bits!</button></p>
     <br><br>
 
-    <p>Before Stuffing: <label type="text" id="original">Original bits</label></p>
-    <p>After Stuffing: <label type="text" id="result" class="s_stuffed">Stuffed bits</label><br></p>
+    <p>Before Stuffing: <label type="text" id="original"></label>
+        <label type="text" id="charNumber1"></label></p>
+    <p>After Stuffing: <label type="text" id="result" class="s_stuffed"></label>
+        <label type="text" id="charNumber2"></label><br></p>
 
-    <p>After framing:<label type="text" id="framing" class="s_framing">Frame</label><label type="text" id="result2"
-            class="s_stuffed">Stuffed bits</label><label type="text" id="framing2" class="s_framing">Frame</label></p>
+    <p>After framing: <label type="text" id="framing" class="s_framing"></label><label type="text" id="result2"
+            class="s_stuffed"></label><label type="text" id="framing2" class="s_framing"></label>
+            <label type="text" id="charNumber3"></label></p>
 
     <br><br><br><br>
     <author><p>Author: Maickel Siqueira</p>
@@ -32,6 +35,7 @@
     var framing = "01111110";
     var framed = "";
     var stuffed = "";
+
 
     function stuff() {
         for (var i = 0; i < stuffed.length; i++) {
@@ -59,6 +63,8 @@
         document.getElementById('result2').innerText = stuffed;
         document.getElementById('framing').innerText = framed;
         document.getElementById('framing2').innerText = framed;
+        document.getElementById('charNumber1').innerText = original.length + " characters";
+        document.getElementById('charNumber2').innerText = stuffed.length + " characters";
     }
 
     document.getElementById("resultButton").addEventListener('click', function () {
